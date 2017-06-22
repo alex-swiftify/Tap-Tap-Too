@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MatchTableViewCell.h
 //  Tap Tap Too
 //
 //  Created by Alejandro Zamudio Guajardo on 6/20/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MatchTableViewCell : UITableViewCell
 
 @end
-
