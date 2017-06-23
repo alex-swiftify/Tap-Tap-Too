@@ -12,5 +12,6 @@
 
 + (UIColor *) aquaColor;
 + (UIColor *) violetColor;
++ (UIColor *) shadowColor;
 
 @end

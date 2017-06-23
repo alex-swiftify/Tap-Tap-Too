@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+UIColor_CustomColors.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface InGameViewController : UIViewController
+@interface InGameViewController : UIViewController <AVAudioPlayerDelegate>
 
 @end

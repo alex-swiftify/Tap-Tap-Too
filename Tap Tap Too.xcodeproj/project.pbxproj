@@ -17,6 +17,7 @@
 		1545B4DD1EFA176700A5A63E /* MatchesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545B4DC1EFA176700A5A63E /* MatchesTableViewController.m */; };
 		1545B4E21EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545B4E11EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.m */; };
 		1545B4E51EFA34C600A5A63E /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545B4E41EFA34C600A5A63E /* MatchTableViewCell.m */; };
+		155929161EFCB4F500A6DFCF /* TimeGames.wav in Resources */ = {isa = PBXBuildFile; fileRef = 155929151EFCB4F500A6DFCF /* TimeGames.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1545B4E11EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_CustomColors.m"; sourceTree = "<group>"; };
 		1545B4E31EFA34C600A5A63E /* MatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchTableViewCell.h; sourceTree = "<group>"; };
 		1545B4E41EFA34C600A5A63E /* MatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTableViewCell.m; sourceTree = "<group>"; };
+		155929151EFCB4F500A6DFCF /* TimeGames.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TimeGames.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		1545B4BC1EF9FCED00A5A63E /* Tap Tap Too */ = {
 			isa = PBXGroup;
 			children = (
+				155929171EFCB4FE00A6DFCF /* Sounds and Music */,
 				1545B4DE1EFA1AE200A5A63E /* Categories and Extensions */,
 				1545B4D71EFA167700A5A63E /* View Controllers */,
 				1545B4C01EF9FCED00A5A63E /* AppDelegate.h */,
@@ -113,6 +116,14 @@
 				1545B4E11EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.m */,
 			);
 			name = "Categories and Extensions";
+			sourceTree = "<group>";
+		};
+		155929171EFCB4FE00A6DFCF /* Sounds and Music */ = {
+			isa = PBXGroup;
+			children = (
+				155929151EFCB4F500A6DFCF /* TimeGames.wav */,
+			);
+			name = "Sounds and Music";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1545B4CD1EF9FCED00A5A63E /* LaunchScreen.storyboard in Resources */,
+				155929161EFCB4F500A6DFCF /* TimeGames.wav in Resources */,
 				1545B4CA1EF9FCED00A5A63E /* Assets.xcassets in Resources */,
 				1545B4C81EF9FCED00A5A63E /* Main.storyboard in Resources */,
 			);
@@ -351,6 +363,7 @@
 				1545B4D31EF9FCED00A5A63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
