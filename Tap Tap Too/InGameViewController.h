@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+UIColor_CustomColors.h"
 #import <AVFoundation/AVFoundation.h>
+#import "UIViewControllerProtocols.h"
 
 @interface InGameViewController : UIViewController <AVAudioPlayerDelegate>
+
+@property (strong, nonatomic) id <UIViewControllerProtocols> delegate;
 
 @end

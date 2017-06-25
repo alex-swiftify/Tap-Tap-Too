@@ -9,6 +9,7 @@
 #import "InGameViewController.h"
 
 @interface InGameViewController ()
+
 @property (weak, nonatomic) IBOutlet UIButton *firstPlayerButton;
 @property (weak, nonatomic) IBOutlet UIButton *secondPlayerButton;
 @property (weak, nonatomic) IBOutlet UILabel *firstPlayerNameLabel;
@@ -31,9 +32,17 @@ UIView * nameRegisteringView;
 UILabel * registerLabel;
 UITextField * nameInputTextField;
 UIButton * continueButton;
+UIView * winnerDisplayingView;
+UILabel * gameWinnerLabel;
+UILabel * gameResultLabel;
 bool hasFirstPlayerBeenRegistered = NO;
 AVAudioPlayer * gameAudioPlayer;
+AVAudioPlayer * soundsAudioPlayer;
 NSURL * gameMusic;
+NSURL * gameEndedSound;
+NSString * winnerName;
+int winnerTaps;
+bool isItATie = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -98,7 +107,85 @@ NSURL * gameMusic;
 }
 
 - (void)endGame {
-    
+    [gameTimer invalidate];
+    [gameAudioPlayer stop];
+    @try {
+        gameEndedSound = [[NSURL alloc] initFileURLWithPath: [[NSBundle mainBundle] pathForResource: @"buzzer_x" ofType: @"wav"]];
+        soundsAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: gameEndedSound error: nil];
+    } @catch (NSException *exception) {
+        NSLog(@"Music couldn't be load");
+    }
+    [soundsAudioPlayer prepareToPlay];
+    [soundsAudioPlayer play];
+    [soundsAudioPlayer setVolume: 1.0];
+    [self determineWinner];
+    [self presentEndGameView];
+}
+
+- (void)determineWinner {
+    if (firstPlayerTapCount > secondPlayerTapCount) {
+        winnerName = self.firstPlayerNameLabel.text;
+        winnerTaps = firstPlayerTapCount;
+    }
+    else if (firstPlayerTapCount < secondPlayerTapCount) {
+        winnerName = self.secondPlayerNameLabel.text;
+        winnerTaps = secondPlayerTapCount;
+    }
+    else {
+        isItATie = YES;
+        winnerTaps = firstPlayerTapCount;
+    }
+}
+
+- (void)presentEndGameView {
+    NSString * endGameText;
+    if (isItATie) {
+        endGameText = @"It is a tie!";
+    }
+    else {
+        endGameText = [NSString stringWithFormat: @"%@%@", @"Winner: ", winnerName];
+    }
+    NSString * endGameTaps = [NSString stringWithFormat: @"%@%i", @"Taps: ", winnerTaps];
+    CGRect frame = [[self view] frame];
+    shadowView = [[UIView alloc] initWithFrame: frame];
+    shadowView.backgroundColor = [UIColor shadowColor];
+    frame = CGRectMake(self.view.frame.size.width / 8.0, self.view.frame.size.height / 4.0, self.view.frame.size.width / 1.3, self.view.frame.size.height / 3.0);
+    winnerDisplayingView = [[UIView alloc] initWithFrame: frame];
+    winnerDisplayingView.backgroundColor = [UIColor whiteColor];
+    winnerDisplayingView.clipsToBounds = YES;
+    winnerDisplayingView.layer.cornerRadius = 8;
+    frame = CGRectMake(0.0, winnerDisplayingView.frame.size.height / 8.0, winnerDisplayingView.frame.size.width, winnerDisplayingView.frame.size.height / 6.0);
+    gameWinnerLabel = [[UILabel alloc] initWithFrame: frame];
+    gameWinnerLabel.backgroundColor = [UIColor whiteColor];
+    gameWinnerLabel.textColor = [UIColor violetColor];
+    gameWinnerLabel.text = endGameText;
+    gameWinnerLabel.textAlignment = NSTextAlignmentCenter;
+    gameWinnerLabel.font = [UIFont fontWithName: @"HelveticaNeue" size: 25];
+    frame = CGRectMake(0.0, winnerDisplayingView.frame.size.height / 2.7, winnerDisplayingView.frame.size.width, winnerDisplayingView.frame.size.height / 6.0);
+    gameResultLabel = [[UILabel alloc] initWithFrame: frame];
+    gameResultLabel.backgroundColor = [UIColor whiteColor];
+    gameResultLabel.textColor = [UIColor violetColor];
+    gameResultLabel.text = endGameTaps;
+    gameResultLabel.textAlignment = NSTextAlignmentCenter;
+    gameResultLabel.font = [UIFont fontWithName: @"HelveticaNeue" size: 25];
+    frame = CGRectMake(winnerDisplayingView.frame.size.width / 8.0, winnerDisplayingView.frame.size.height / 1.5, winnerDisplayingView.frame.size.width / 1.3, winnerDisplayingView.frame.size.height / 4.5);
+    continueButton = [[UIButton alloc] initWithFrame: frame];
+    continueButton.backgroundColor = [UIColor violetColor];
+    continueButton.clipsToBounds = YES;
+    continueButton.layer.cornerRadius = 8;
+    [continueButton setTitle: @"Continue" forState: UIControlStateNormal];
+    [continueButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+    continueButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    [continueButton addTarget: self action: @selector(registerMatch) forControlEvents: UIControlEventTouchUpInside];
+    [[self view] addSubview: shadowView];
+    [[self view] addSubview: winnerDisplayingView];
+    [winnerDisplayingView addSubview: gameWinnerLabel];
+    [winnerDisplayingView addSubview: gameResultLabel];
+    [winnerDisplayingView addSubview: continueButton];
+}
+
+- (void)registerMatch {
+    [[self delegate] dismissViewControllerAnimated: YES];
 }
 
 - (void)presentPlayerRegistrationView {
@@ -167,7 +254,7 @@ NSURL * gameMusic;
 }
 
 - (void)registerPlayerName {
-    if (![nameInputTextField.text  isEqual: @""]) {
+    if (![nameInputTextField.text  isEqualToString: @""]) {
         if (!hasFirstPlayerBeenRegistered) {
             self.firstPlayerNameLabel.text = nameInputTextField.text;
             hasFirstPlayerBeenRegistered = YES;

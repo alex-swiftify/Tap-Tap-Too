@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UIColor+UIColor_CustomColors.h"
+#import "UIViewControllerProtocols.h"
+#import "InGameViewController.h"
 
-@interface MainMenuViewController : UIViewController
+@interface MainMenuViewController : UIViewController <UIViewControllerProtocols>
 
 @end
