@@ -14,9 +14,7 @@
 		1545B4CD1EF9FCED00A5A63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1545B4CB1EF9FCED00A5A63E /* LaunchScreen.storyboard */; };
 		1545B4D61EFA166E00A5A63E /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545B4D51EFA166E00A5A63E /* MainMenuViewController.m */; };
 		1545B4DA1EFA171400A5A63E /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545B4D91EFA171400A5A63E /* InGameViewController.m */; };
-		1545B4DD1EFA176700A5A63E /* MatchesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545B4DC1EFA176700A5A63E /* MatchesTableViewController.m */; };
 		1545B4E21EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545B4E11EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.m */; };
-		1545B4E51EFA34C600A5A63E /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1545B4E41EFA34C600A5A63E /* MatchTableViewCell.m */; };
 		155929161EFCB4F500A6DFCF /* TimeGames.wav in Resources */ = {isa = PBXBuildFile; fileRef = 155929151EFCB4F500A6DFCF /* TimeGames.wav */; };
 		15B496AF1EFCC9E4009961DD /* buzzer_x.wav in Resources */ = {isa = PBXBuildFile; fileRef = 15B496AE1EFCC9E4009961DD /* buzzer_x.wav */; };
 /* End PBXBuildFile section */
@@ -34,12 +32,8 @@
 		1545B4D51EFA166E00A5A63E /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		1545B4D81EFA171400A5A63E /* InGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InGameViewController.h; sourceTree = "<group>"; };
 		1545B4D91EFA171400A5A63E /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
-		1545B4DB1EFA176700A5A63E /* MatchesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchesTableViewController.h; sourceTree = "<group>"; };
-		1545B4DC1EFA176700A5A63E /* MatchesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchesTableViewController.m; sourceTree = "<group>"; };
 		1545B4E01EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_CustomColors.h"; sourceTree = "<group>"; };
 		1545B4E11EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_CustomColors.m"; sourceTree = "<group>"; };
-		1545B4E31EFA34C600A5A63E /* MatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchTableViewCell.h; sourceTree = "<group>"; };
-		1545B4E41EFA34C600A5A63E /* MatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTableViewCell.m; sourceTree = "<group>"; };
 		155929151EFCB4F500A6DFCF /* TimeGames.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TimeGames.wav; sourceTree = "<group>"; };
 		15A9A8F21EFF533100924402 /* UIViewControllerProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerProtocols.h; sourceTree = "<group>"; };
 		15B496AE1EFCC9E4009961DD /* buzzer_x.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buzzer_x.wav; sourceTree = "<group>"; };
@@ -101,10 +95,6 @@
 		1545B4D71EFA167700A5A63E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1545B4E31EFA34C600A5A63E /* MatchTableViewCell.h */,
-				1545B4E41EFA34C600A5A63E /* MatchTableViewCell.m */,
-				1545B4DB1EFA176700A5A63E /* MatchesTableViewController.h */,
-				1545B4DC1EFA176700A5A63E /* MatchesTableViewController.m */,
 				1545B4D81EFA171400A5A63E /* InGameViewController.h */,
 				1545B4D91EFA171400A5A63E /* InGameViewController.m */,
 				1545B4D41EFA166E00A5A63E /* MainMenuViewController.h */,
@@ -215,8 +205,6 @@
 				1545B4C21EF9FCED00A5A63E /* AppDelegate.m in Sources */,
 				1545B4DA1EFA171400A5A63E /* InGameViewController.m in Sources */,
 				1545B4D61EFA166E00A5A63E /* MainMenuViewController.m in Sources */,
-				1545B4E51EFA34C600A5A63E /* MatchTableViewCell.m in Sources */,
-				1545B4DD1EFA176700A5A63E /* MatchesTableViewController.m in Sources */,
 				1545B4E21EFA1C7A00A5A63E /* UIColor+UIColor_CustomColors.m in Sources */,
 				1545B4BF1EF9FCED00A5A63E /* main.m in Sources */,
 			);
